@@ -105,6 +105,8 @@ BOOL COpenGL3DDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO: 在此添加额外的初始化代码
+	m_appMainMenu.LoadMenuW(IDR_APP_MAIN_MENU);
+	SetMenu(&m_appMainMenu);
 	g_oglobj.SetUp();
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -154,7 +156,7 @@ void COpenGL3DDlg::OnPaint()
 		::glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		//可以添加渲染函数
-		g_oglobj.Render();
+		//g_oglobj.Render();
 		// Flush掉渲染流水线
 		::glFinish();
 		// 交换前后缓存区
