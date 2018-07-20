@@ -3,6 +3,7 @@
 //
 
 #pragma once
+#include "afxwin.h"
 
 
 // COpenGL3DDlg 对话框
@@ -42,4 +43,6 @@ public:
 	CDC* m_pDC;        //DC 设备上下文
 	BOOL InitializeOpenGL();    //初始化 OpenGL
 	BOOL SetupPixelFormat();    //为 DC 建立像素格式
+								// 主菜单
+	CMenu m_appMainMenu;
 };
