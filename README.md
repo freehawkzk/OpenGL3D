@@ -2,7 +2,7 @@
 &emsp;&emsp;最近在看《OpenGL SuperBiber》，该书示例代码是GLFW+OpenGL实现的，窗口系统采用了GLFW。虽然GLFW是一个优秀的窗口管理系统，但由于我更熟悉MFC，所以希望将该书的代码移植到VS2015 MFC下。
 [TOC]
 
-##1、安装GLEW
+## 1、安装GLEW
 ### 1.1 下载GLEW
 &emsp;&emsp;**GLEW**(OpenGL Extension Wrangler Library)是一个用C/C++实现的可移植的OpenGL库。由于微软官方支持的OpenGL版本只持续到1.1，而目前OpenGL已经发展到4.5到4.6版本了。对于1.1之后OpenGL函数必须使用扩展的形式进行支持。
 &emsp;&emsp;GLEW下载网址：(https://sourceforge.net/projects/glew/files/glew/2.1.0/)。目前最新版本是2.1.0，可以根据时间从(http://glew.sourceforge.net/) 查询最新版本并下载。
@@ -11,11 +11,11 @@
 &emsp;&emsp;GLEW中包含windows下的生成工程文件，在build目录下。使用VS2015打开VC12下的glew.sln，升级编译工具即可顺利编译。
 ### 1.3 部署
 &emsp;&emsp;GLEW编译完之后，根据各人爱好放置需要的.h,.lib..dll即可。网上很多人建议将相关文件丢到system32等系统目录下，而我喜欢将这些放置到当前工程能够通过相对目录访问的目录下，通常我放在解决方案的lib/include目录，将dll放到解决方案的输出目录下，这样，不至于因为单个解决方案污染整个操作系统的相关文件。
-##2、MFC下使用OpenGL
+## 2、MFC下使用OpenGL
 &emsp;&emsp;这里，我选择在MFC的对话框程序中使用OpenGL。
-###2.1 新建对话框程序
+### 2.1 新建对话框程序
 &emsp;&emsp;按照传统套路，一路默认建立MFC对话框程序即可。
-###2.2 引入OpenGL头文件和库文件
+### 2.2 引入OpenGL头文件和库文件
 &emsp;&emsp;在stdafx.h中加入以下代码：
 ```C++
 #include "GL/glew.h"
@@ -34,14 +34,14 @@
 #pragma comment(lib,"GLaux.lib")
 ```
 &emsp;&emsp;注意，**在包含glew.h之前不能包含GL.h**。
-###2.3 加入必须的变量
+### 2.3 加入必须的变量
 &emsp;&emsp;在对话框中添加成员变量：
 ```C++
 	HGLRC m_hRC;    //RC 绘图上下文
 	CDC* m_pDC;        //DC 设备上下文
 ```
 其中m_hRC是OpenGL渲染使用的绘图上下文，m_pDC是渲染窗口的设备上下文。
-###2.4 初始化OpenGL
+### 2.4 初始化OpenGL
 &emsp;&emsp;使用OpenGL进行渲染之前，需要对OpenGL进行初始化。
 ```C++
 BOOL COpenGL3DDlg::InitializeOpenGL()
@@ -127,7 +127,7 @@ BOOL  COpenGL3DDlg::SetupPixelFormat()
 	return TRUE;
 }
 ```
-###2.5 渲染与界面更新
+### 2.5 渲染与界面更新
 &emsp;&emsp;在MFC对话框程序中，绘制操作一般都放置于OnPaint函数中，
 ```C++
 void COpenGL3DDlg::OnPaint()
@@ -167,7 +167,7 @@ void COpenGL3DDlg::OnPaint()
 }
 ```
 在这里调用OpenGL的渲染相关操作。先在BACK缓冲区绘制再交换buffer到前台。
-###2.6 背景擦除
+### 2.6 背景擦除
 &emsp;&emsp;由于窗口的背景由OpenGL进行擦除，因此可以将MFC的GDI擦除背景操作屏蔽，使其直接返回TRUE即可。
 ```C++
 BOOL COpenGL3DDlg::OnEraseBkgnd(CDC* pDC)
