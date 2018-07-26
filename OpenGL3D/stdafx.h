@@ -34,14 +34,14 @@
 
 
 
-#include "GL/glew.h"
+#include "../Include/GL/glew.h"
 #ifdef _DEBUG
-#pragma comment(lib,"./lib/Debug/Win32/glew32d.lib")
+#pragma comment(lib,"../Libs/glew/x86/glew32d.lib")
 #else
-#pragma comment(lib,"./lib/Release/Win32/glew32.lib")
+#pragma comment(lib,"../Libs/glew/x86/glew32.lib")
 #endif
 
-
+#include "../Include/vmath.h"
 
 #include <gl/GL.h>
 

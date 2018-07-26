@@ -1,5 +1,6 @@
 #pragma once
 #include "stdafx.h"
+
 class OGLObject
 {
 public:
@@ -38,7 +39,8 @@ public:
 
 	GLuint m_gluBuffer;
 	GLfloat m_glfPointSize;
-
+	vmath::vec4 m_vPointColor;
+	vmath::vec4 m_vPointLocation;
 protected:
 private:
 };
