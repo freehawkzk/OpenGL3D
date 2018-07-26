@@ -4,8 +4,9 @@
 
 #pragma once
 #include "afxwin.h"
-
-
+#include "OGLObject.h"
+class CRenderDlg;
+#include "Scene.h"
 // COpenGL3DDlg 对话框
 class COpenGL3DDlg : public CDialogEx
 {
@@ -33,16 +34,20 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
+//	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnDestroy();
-	afx_msg void OnSize(UINT nType, int cx, int cy);
-	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
-	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
+//	afx_msg void OnSize(UINT nType, int cx, int cy);
+//	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+//	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 
-	HGLRC m_hRC;    //RC 绘图上下文
-	CDC* m_pDC;        //DC 设备上下文
-	BOOL InitializeOpenGL();    //初始化 OpenGL
-	BOOL SetupPixelFormat();    //为 DC 建立像素格式
-								// 主菜单
+
+	afx_msg void OnSetting();
+	afx_msg void OnExit();
+	
+public:
+	// 主菜单
 	CMenu m_appMainMenu;
+	CRenderDlg* m_pRenderDlg; //渲染区域窗口
+	CScene m_scene;//场景管理器
+	afx_msg void OnSize(UINT nType, int cx, int cy);
 };
