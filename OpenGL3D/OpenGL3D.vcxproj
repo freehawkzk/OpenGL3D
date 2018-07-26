@@ -93,8 +93,10 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -142,7 +144,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -192,6 +194,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OGLObject.h" />
+    <ClInclude Include="OGLShaderLoader.h" />
     <ClInclude Include="OpenGL3D.h" />
     <ClInclude Include="OpenGL3DDlg.h" />
     <ClInclude Include="RenderDlg.h" />
@@ -202,6 +205,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OGLObject.cpp" />
+    <ClCompile Include="OGLShaderLoader.cpp" />
     <ClCompile Include="OpenGL3D.cpp" />
     <ClCompile Include="OpenGL3DDlg.cpp" />
     <ClCompile Include="RenderDlg.cpp" />
@@ -217,6 +221,12 @@
     <ResourceCompile Include="OpenGL3D.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Bin\shaders\singlePoint.fs.glsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\shaders\singlePoint.vs.glsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </None>
     <None Include="res\OpenGL3D.rc2" />
   </ItemGroup>
   <ItemGroup>

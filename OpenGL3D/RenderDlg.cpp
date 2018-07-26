@@ -14,7 +14,6 @@ IMPLEMENT_DYNAMIC(CRenderDlg, CDialogEx)
 CRenderDlg::CRenderDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_RENDERDLG, pParent),m_pDC(NULL),m_pSence(NULL)
 {
-
 }
 
 CRenderDlg::~CRenderDlg()
@@ -228,11 +227,11 @@ void CRenderDlg::OnPaint()
 	{
 		m_pSence->Render();
 	}
-	//g_oglobj.Render();
 	// Flush掉渲染流水线
 	::glFinish();
-	// 交换前后缓存区
+	 //交换前后缓存区
 	::SwapBuffers(m_pDC->GetSafeHdc());
+	//PostMessage(WM_PAINT, 0, 0);
 }
 
 
@@ -242,7 +241,7 @@ void CRenderDlg::OnTimer(UINT_PTR nIDEvent)
 	switch (nIDEvent)
 	{
 	case 0:
-		//Invalidate();
+		Invalidate();
 		break;
 	default:
 		break;
@@ -256,7 +255,9 @@ BOOL CRenderDlg::OnInitDialog()
 	CDialogEx::OnInitDialog();
 
 	// TODO:  在此添加额外的初始化
-	//SetTimer(0, 50, NULL);
+	SetTimer(0, 5, NULL);
+
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // 异常: OCX 属性页应返回 FALSE
 }
@@ -265,6 +266,5 @@ BOOL CRenderDlg::OnInitDialog()
 void CRenderDlg::OnClose()
 {
 	// TODO: 在此添加消息处理程序代码和/或调用默认值
-
 	CDialogEx::OnClose();
 }

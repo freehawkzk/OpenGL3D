@@ -27,6 +27,13 @@ COpenGL3DApp::COpenGL3DApp()
 
 	// TODO: 在此处添加构造代码，
 	// 将所有重要的初始化放置在 InitInstance 中
+	//设置工作目录
+	HMODULE hExe = GetModuleHandle(NULL);
+	CString fName;
+	TCHAR fNameBuf[MAX_PATH];
+	GetModuleFileName(hExe, fNameBuf, MAX_PATH);
+	CString fPath = CString(fNameBuf).Left(CString(fNameBuf).ReverseFind(_T('\\')));
+	SetCurrentDirectory(fPath);
 }
 
 

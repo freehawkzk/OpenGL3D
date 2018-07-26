@@ -1,6 +1,6 @@
 #pragma once
 #include "stdafx.h"
-
+#include "OGLShaderLoader.h"
 class OGLObject
 {
 public:
@@ -17,7 +17,7 @@ public:
 	virtual bool Render();
 	virtual bool Destory();
 	
-	float* m_pVerts;
+	vmath::vec4* m_pVerts;
 	int    m_nVertsCount;
 	bool   m_bCreatedMesh;
 };
@@ -37,7 +37,8 @@ public:
 	virtual bool Render();
 	virtual bool Destory();
 
-	GLuint m_gluBuffer;
+	GLuint m_gluBuffer[2];
+
 	GLfloat m_glfPointSize;
 	vmath::vec4 m_vPointColor;
 	vmath::vec4 m_vPointLocation;
