@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{7c072093-7726-48d4-a98f-fc056ad37ba2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -36,6 +39,15 @@
     <ClInclude Include="OGLObject.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="RenderDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OGLShaderLoader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGL3D.cpp">
@@ -50,6 +62,15 @@
     <ClCompile Include="OGLObject.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="RenderDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OGLShaderLoader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="OpenGL3D.rc">
@@ -59,6 +80,12 @@
   <ItemGroup>
     <None Include="res\OpenGL3D.rc2">
       <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Bin\shaders\singlePoint.fs.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\Bin\shaders\singlePoint.vs.glsl">
+      <Filter>shaders</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
